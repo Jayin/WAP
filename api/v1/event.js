@@ -7,7 +7,7 @@ router.post('/create',function(req,res){
         category: req.body.category,
         action: req.body.action,
         opt_label: req.body.opt_label,
-        opt_value: req.body.opt_label
+        opt_value: req.body.opt_value
     })
     e.save(function(err, obj){
         if(err) {
