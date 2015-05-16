@@ -9,7 +9,7 @@ debug:
 	PORT=3000 DEBUG=true ./bin/www
 
 test:
-	@mocha \
+	@./node_modules/.bin/mocha \
 	--timeout $(TEST_TIMEOUT) \
 	--reporter $(MOCHA_REPORTER) \
 	--recursive \
