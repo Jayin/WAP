@@ -24,8 +24,8 @@ router.post('/create',function(req,res){
     
 });
 
-router.get('/:id', function(req,res){
-    Event.findById(req.params.id, '-_id -__v',function(err, event){
+router.get('/view/:id', function(req,res){
+    Event.findById(req.params.id, {_id: false,__v: false},function(err, event){
         if (err)
             return res.send({
                 code:1,
@@ -39,8 +39,23 @@ router.get('/:id', function(req,res){
     })
 });
 
-router.get('/', function(req,res){
-    res.send('event index page');
+router.get('/events', function(req,res){
+
+    var page = req.query.page || 1
+    var pageSize = req.query.pageSize || 10
+
+    Event.find().limit(pageSize).skip((page - 1) * 10).exec(function(err, events){
+        if (err)
+            return res.send({
+                code:1,
+                msg: err.message
+            })
+
+        res.send({
+            code: 0,
+            data: events
+        })
+    })
 });
 
 
