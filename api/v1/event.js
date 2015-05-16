@@ -2,7 +2,7 @@ var express = require('express')
 var router = express.Router()
 var Event = require('../../models/event')
 
-router.post('/create',function(req,res){
+router.post('/create', function(req, res){
     var e = new Event({
         category: req.body.category,
         action: req.body.action,
@@ -22,10 +22,10 @@ router.post('/create',function(req,res){
         })
     })
     
-});
+})
 
-router.get('/view/:id', function(req,res){
-    Event.findById(req.params.id, {_id: false,__v: false}, function(err, event){
+router.get('/view/:id', function(req, res){
+    Event.findById(req.params.id, {_id: false, __v: false}, function(err, event){
         if (err)
             return res.send({
                 code:1,
@@ -37,17 +37,17 @@ router.get('/view/:id', function(req,res){
             event: event
         })
     })
-});
+})
 
-router.get('/events', function(req,res){
+router.get('/events', function(req, res){
 
     var page = req.query.page || 1
     var pageSize = req.query.pageSize || 10
 
-    Event.find({}, {_id: false,__v: false}).limit(pageSize).skip((page - 1) * 10).exec(function(err, events){
+    Event.find({}, {_id: false, __v: false}).limit(pageSize).skip((page - 1) * 10).exec(function(err, events){
         if (err)
             return res.send({
-                code:1,
+                code: 1,
                 msg: err.message
             })
 
@@ -56,7 +56,7 @@ router.get('/events', function(req,res){
             data: events
         })
     })
-});
+})
 
 
-module.exports = router;
+module.exports = router
