@@ -3,9 +3,9 @@ var app = require('../../../app')
 var request = require('supertest')(app)
 
 describe('test/api/v1/website.js', function() {
-    describe('POST /create', function() {
+    describe('创建website', function() {
         it('should succsssfully create', function(done) {
-            request.post('/api/v1/website/create')
+            request.post('/api/v1/websites/')
                 .send({
                     domain: 'jayinton.com'
                 })
@@ -18,11 +18,11 @@ describe('test/api/v1/website.js', function() {
         })
     })
 
-    describe('GET /view/:id', function() {
+    describe('查看一个已创建的website', function() {
         it('should succsssfully create and view ', function(done) {
 
             var view = function(website_id){
-                request.get('/api/v1/website/view/' + website_id)
+                request.get('/api/v1/websites/' + website_id)
                     .end(function(err, res){
                         if(err) return done(err)
                         assert.equal(res.status, 200)
@@ -33,7 +33,7 @@ describe('test/api/v1/website.js', function() {
                     })
             }
 
-            request.post('/api/v1/website/create')
+            request.post('/api/v1/websites/')
                 .send({
                     domain: 'jayinton.com'
                 })

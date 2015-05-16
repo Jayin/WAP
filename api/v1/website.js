@@ -3,7 +3,9 @@ var router = express.Router()
 var Website = require('../../models/website')
 var crypto = require('crypto')
 
-router.post('/create', function(req, res){
+
+//create 
+router.post('/', function(req, res){
     var w = new Website({
         domain: req.body.domain,
         app_key: crypto.randomBytes(16).toString('hex')
@@ -20,8 +22,9 @@ router.post('/create', function(req, res){
     })
 })
 
-router.get('/view/:id', function(req, res){
-    Website.findById(req.params.id, {_id: false, __v: false}, function(err, data){
+//view
+router.get('/:website_id', function(req, res){
+    Website.findById(req.params.website_id, {_id: false, __v: false}, function(err, data){
         if (err)
             return res.send({
                 code:1,

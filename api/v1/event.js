@@ -2,7 +2,8 @@ var express = require('express')
 var router = express.Router()
 var Event = require('../../models/event')
 
-router.post('/create', function(req, res){
+//创建一个event
+router.post('/', function(req, res){
     var e = new Event({
         category: req.body.category,
         action: req.body.action,
@@ -24,22 +25,8 @@ router.post('/create', function(req, res){
     
 })
 
-router.get('/view/:id', function(req, res){
-    Event.findById(req.params.id, {_id: false, __v: false}, function(err, event){
-        if (err)
-            return res.send({
-                code:1,
-                msg: err.message
-            })
-
-        res.send({
-            code: 0,
-            event: event
-        })
-    })
-})
-
-router.get('/events', function(req, res){
+//获得event列表
+router.get('/', function(req, res){
 
     var page = req.query.page || 1
     var pageSize = req.query.pageSize || 10
@@ -57,6 +44,23 @@ router.get('/events', function(req, res){
         })
     })
 })
+
+//获取某个event
+router.get('/:event_id', function(req, res){
+    Event.findById(req.params.event_id, {_id: false, __v: false}, function(err, event){
+        if (err)
+            return res.send({
+                code:1,
+                msg: err.message
+            })
+
+        res.send({
+            code: 0,
+            event: event
+        })
+    })
+})
+
 
 
 module.exports = router
