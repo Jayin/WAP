@@ -1,5 +1,5 @@
-var express = require('express');
-var router = express.Router();
+var express = require('express')
+var router = express.Router()
 var Event = require('../../models/event')
 
 router.post('/create',function(req,res){

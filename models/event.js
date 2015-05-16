@@ -1,5 +1,5 @@
 var mongoose = require('./index').mongoose
-var Schema = mongoose.Schema;
+var Schema = mongoose.Schema
 
 var EventSchema = mongoose.Schema({
     category: {type: String,required: true},
