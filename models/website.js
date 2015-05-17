@@ -7,4 +7,13 @@ var WebsiteSchema = mongoose.Schema({
     create_time: {type:Date, default: Date.now}
 })
 
+WebsiteSchema.statics.create = function(data, cb){
+    var Website = mongoose.model('Website', WebsiteSchema)
+    var website = new Website({
+        domain: data.domain,
+        app_key: require('crypto').randomBytes(16).toString('hex')
+    })
+    website.save(cb)
+}
+
 module.exports = mongoose.model('Website', WebsiteSchema)

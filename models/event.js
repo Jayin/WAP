@@ -10,9 +10,16 @@ var EventSchema = mongoose.Schema({
     opt_value: Number
 })
 
-EventSchema.virtual('id').get(function(){
-    console.log(this._id)
-    return this._id
-})
+EventSchema.statics.create = function(data, cb){
+    var Event = mongoose.model('Event', EventSchema)
+    var event = new Event({
+        website_id: data.website_id,
+        category: data.category,
+        action: data.action,
+        opt_label: data.opt_label,
+        opt_value: data.opt_value
+    })
+    event.save(cb)
+}
 
 module.exports = mongoose.model('Event', EventSchema)

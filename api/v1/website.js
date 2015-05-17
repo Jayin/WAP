@@ -1,9 +1,8 @@
 var express = require('express')
 var router = express.Router()
 var Website = require('../../models/website')
-var crypto = require('crypto')
 
-//list website
+//获得 website列表
 router.get('/websites', function(req, res){
     var page = req.query.page || 1
     var pageSize = req.query.pageSize || 10
@@ -13,52 +12,34 @@ router.get('/websites', function(req, res){
             .skip((page - 1) * 10)
             .exec(function(err, result){
                 if (err)
-                    return res.send({
-                        code: 1,
+                    return res.status(400).send({
                         msg: err.message
                     })
 
-                res.send({
-                    code: 0,
-                    data: result
-                })
+                res.send(result)
     })
 })
 
-//create 
+//创建website
 router.post('/websites', function(req, res){
-    var w = new Website({
-        domain: req.body.domain,
-        app_key: crypto.randomBytes(16).toString('hex')
-    })
-    w.save(function(err, data){
-        if (err) return res.send({
-            code: 1,
+    Website.create({domain: req.body.domain}, function(err, result){
+        if (err) return res.status(400).send({
             msg: err.message
         })
-        res.send({
-            code: 0,
-            website_id: data._id
-        })
+        res.status(201).send(result)        
     })
 })
 
-//view
+//根据website_id获得website
 router.get('/websites/:website_id', function(req, res){
-    Website.findById(req.params.website_id, {_id: false, __v: false}, function(err, data){
+    Website.findById(req.params.website_id, {_id: false, __v: false}, function(err, result){
         if (err)
-            return res.send({
-                code:1,
+            return res.status(400).send({
                 msg: err.message
             })
 
-        res.send({
-            code: 0,
-            website: data
-        })
+        res.send(result)
     })
 })
-
-
 
 module.exports = router
