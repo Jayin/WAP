@@ -5,7 +5,7 @@ var request = require('supertest')(app)
 describe('test/api/v1/website.js', function() {
     describe('创建website', function() {
         it('should succsssfully create', function(done) {
-            request.post('/api/v1/websites/')
+            request.post('/api/v1/websites')
                 .send({
                     domain: 'jayinton.com'
                 })

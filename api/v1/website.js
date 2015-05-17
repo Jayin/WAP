@@ -3,9 +3,30 @@ var router = express.Router()
 var Website = require('../../models/website')
 var crypto = require('crypto')
 
+//list website
+router.get('/websites', function(req, res){
+    var page = req.query.page || 1
+    var pageSize = req.query.pageSize || 10
+
+    Website.find({}, {_id: false, __v: false})
+            .limit(pageSize)
+            .skip((page - 1) * 10)
+            .exec(function(err, result){
+                if (err)
+                    return res.send({
+                        code: 1,
+                        msg: err.message
+                    })
+
+                res.send({
+                    code: 0,
+                    data: result
+                })
+    })
+})
 
 //create 
-router.post('/', function(req, res){
+router.post('/websites', function(req, res){
     var w = new Website({
         domain: req.body.domain,
         app_key: crypto.randomBytes(16).toString('hex')
@@ -23,7 +44,7 @@ router.post('/', function(req, res){
 })
 
 //view
-router.get('/:website_id', function(req, res){
+router.get('/websites/:website_id', function(req, res){
     Website.findById(req.params.website_id, {_id: false, __v: false}, function(err, data){
         if (err)
             return res.send({
@@ -38,8 +59,6 @@ router.get('/:website_id', function(req, res){
     })
 })
 
-router.get('/websites', function(req, res){
 
-})
 
 module.exports = router

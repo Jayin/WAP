@@ -3,7 +3,7 @@ var Schema = mongoose.Schema
 
 var WebsiteSchema = mongoose.Schema({
     domain: {type: String,required: true},
-    app_key: {type: String,required: true},
+    app_key: {type: String,required: true}, //16位
     create_time: {type:Date, default: Date.now}
 })
 

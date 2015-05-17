@@ -1,14 +1,35 @@
 var express = require('express')
 var router = express.Router()
 var Event = require('../../models/event')
+var Website = require('../../models/website')
+
+// 需要验证当前websiteid是否存在
+router.use('/:website_id/events', function (req, res, next){
+    Website.findById(req.params.website_id, function(err, result){
+        if (err){
+            res.status(400).send({
+                msg: err.message
+            })
+            return
+        }
+        if (result === null){
+            res.status(404).send({
+                msg: 'Not found website'
+            })
+            return
+        }
+        next()
+    })
+})
 
 //创建一个event
-router.post('/', function(req, res){
+router.post('/:website_id/events', function(req, res){
     var e = new Event({
         category: req.body.category,
         action: req.body.action,
         opt_label: req.body.opt_label,
-        opt_value: req.body.opt_value
+        opt_value: req.body.opt_value,
+        website_id: req.params.website_id
     })
     e.save(function(err, obj){
         if(err) {
@@ -26,12 +47,13 @@ router.post('/', function(req, res){
 })
 
 //获得event列表
-router.get('/', function(req, res){
+//page: 页码  pageSize: 每页数目
+router.get('/:website_id/events', function(req, res){
 
     var page = req.query.page || 1
     var pageSize = req.query.pageSize || 10
 
-    Event.find({}, {_id: false, __v: false}).limit(pageSize).skip((page - 1) * 10).exec(function(err, events){
+    Event.find({website_id: req.params.website_id}, {_id: false, __v: false}).limit(pageSize).skip((page - 1) * 10).exec(function(err, events){
         if (err)
             return res.send({
                 code: 1,
@@ -46,11 +68,11 @@ router.get('/', function(req, res){
 })
 
 //获取某个event
-router.get('/:event_id', function(req, res){
-    Event.findById(req.params.event_id, {_id: false, __v: false}, function(err, event){
+router.get('/:website_id/events/:event_id', function(req, res){
+    Event.findOne({_id: req.params.event_id, website_id: req.params.website_id}, {__v: false}, function(err, event){
         if (err)
             return res.send({
-                code:1,
+                code: 1,
                 msg: err.message
             })
 
