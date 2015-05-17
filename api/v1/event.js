@@ -47,7 +47,7 @@ router.get('/:website_id/events', function(req, res){
     var page = req.query.page || 1
     var pageSize = req.query.pageSize || 10
 
-    Event.find({website_id: req.params.website_id}, {_id: false, __v: false}).limit(pageSize).skip((page - 1) * 10).exec(function(err, result){
+    Event.find({website_id: req.params.website_id}, {__v: false}).limit(pageSize).skip((page - 1) * 10).exec(function(err, result){
         if (err)
             return res.status(400).send({
                 msg: err.message
