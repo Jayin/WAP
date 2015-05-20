@@ -2,8 +2,9 @@ var express = require('express')
 var router = express.Router()
 var Event = require('../../models/event')
 var Website = require('../../models/website')
+var url = require('url')
 
-// 需要验证当前websiteid是否存在
+// 需要验证当前websiteid是否存在 & 检测是当前统计是否是给定的domain
 router.use('/:website_id/events', function (req, res, next){
     Website.findById(req.params.website_id, function(err, result){
         if (err){
@@ -18,6 +19,13 @@ router.use('/:website_id/events', function (req, res, next){
             })
             return
         }
+        if (url.parse(req.headers.origin).hostname !== result.domain){
+            res.status(403).send({
+                msg: 'Illegal domain'
+            })
+            return
+        }
+        
         next()
     })
 })
