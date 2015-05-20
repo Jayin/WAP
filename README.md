@@ -1,13 +1,11 @@
 WAP 
 ---
 
-WAP(the Website Analysis Project) is full stack solution that analysis you web app like Google
- Analysis.It designs for high performance, low consume, open to use as a box.
+WAP(the Website Analysis Project) is a full stack solution that analysis you web app like Google Analysis with well extension and custom.It designs for high performance, low consume, open to use as a box.
 
 Now, it's under processing. Please don't take it into production.
 
-## Get Start
-
+## Getting Start
 
 ### install 
 
