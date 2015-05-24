@@ -19,7 +19,8 @@ router.use('/:website_id/events', function (req, res, next){
             })
             return
         }
-        if (url.parse(req.headers.origin).hostname !== result.domain){
+        //check domian when motify the data
+        if (req.method !== 'GET' && url.parse(req.headers.origin).hostname !== result.domain){
             res.status(403).send({
                 msg: 'Illegal domain'
             })

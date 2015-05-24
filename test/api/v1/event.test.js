@@ -4,12 +4,15 @@ var request = require('supertest')(app)
 var Website = require('../../../models/website')
 var Event = require('../../../models/event')
 
+TEST_DOMAIN = 'test.wap.com'
+TEST_MOCK_URL = 'http://' + TEST_DOMAIN
+
 describe('test/api/v1/event.js', function() {
 
     var website_id;
 
     before(function(done) {
-        Website.create({domain: 'testapi.com'}, function(err, result) {
+        Website.create({domain: TEST_DOMAIN}, function(err, result) {
             if (err) return done(err)
             website_id = result._id
             done()
@@ -20,6 +23,8 @@ describe('test/api/v1/event.js', function() {
         it('创建成功', function(done) {
 
             request.post('/api/v1/website/:website_id/events'.replace(':website_id', website_id))
+                //必须设置origin
+                .set('origin', TEST_MOCK_URL)
                 .send({
                     category: 'SelectPage',
                     action: 'buy',
