@@ -36,6 +36,7 @@ router.post('/:website_id/events', function(req, res){
     Event.create({
         category: req.body.category,
         action: req.body.action,
+        ip: req.ip ,
         opt_label: req.body.opt_label,
         opt_value: req.body.opt_value,
         website_id: req.params.website_id

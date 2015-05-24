@@ -56,6 +56,7 @@ describe('test/api/v1/event.js', function() {
         it('获取成功', function(done){
             Event.create({
                 website_id: website_id,
+                ip:'192.168.0.1',
                 category: 'Exchange',
                 action: 'click',
             },function(err, result){
