@@ -1,5 +1,5 @@
 var mongoose = require('mongoose')
-var config = require('../config')
+var config = require('../../config')
 
 mongoose.connect(config.db.db_uri, function (err) {
   if (err) {
