@@ -1,7 +1,7 @@
 var assert = require('assert')
 var app = require('../../../app')
 var request = require('supertest')(app)
-var Website = require('../../../models/website')
+var Website = require('../../../app/models/website')
 
 describe('test/api/v1/website.js', function() {
     describe('创建website', function() {

@@ -1,8 +1,8 @@
 var assert = require('assert')
 var app = require('../../../app')
 var request = require('supertest')(app)
-var Website = require('../../../models/website')
-var Event = require('../../../models/event')
+var Website = require('../../../app/models/website')
+var Event = require('../../../app/models/event')
 
 TEST_DOMAIN = 'test.wap.com'
 TEST_MOCK_URL = 'http://' + TEST_DOMAIN
