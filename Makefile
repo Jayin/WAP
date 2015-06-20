@@ -5,7 +5,7 @@ MOCHA_REPORTER = spec
 main:
 	PORT=3000 ./bin/www
 
-debug:
+dev:
 	PORT=3000 DEBUG=true ./bin/www
 
 test:
