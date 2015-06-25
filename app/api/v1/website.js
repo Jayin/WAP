@@ -7,7 +7,7 @@ router.get('/websites', function(req, res){
     var page = req.query.page || 1
     var pageSize = req.query.pageSize || 10
 
-    Website.find({}, {_id: false, __v: false})
+    Website.find({}, {__v: false})
             .limit(pageSize)
             .skip((page - 1) * 10)
             .exec(function(err, result){
