@@ -22,7 +22,7 @@ make test
 ### launch the app
 
 ```
-make debug
+make dev
 
 # or
 make
