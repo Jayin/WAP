@@ -15,7 +15,9 @@
     "gulp-minifier": "^0.1.1",
     "mongoose": "^4.0.3"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "http-server": "^0.8.5"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
