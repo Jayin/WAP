@@ -1,0 +1,26 @@
+$width: 650px;
+.sb-mod.sb-mod--information {
+    background-color: #4092cc;
+    background-position: left top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    overflow: scroll;
+
+    .module{
+        width: $width;
+        margin: 0 auto;
+    }
+    .top-bar,
+    .bottom-bar {
+        margin: 0 auto;
+        width: $width;
+        text-align: center;
+        background: #fff;
+    }
+    .top-bar {
+        margin: 80px auto 0;
+        font-size: 3rem;
+        border-bottom: 1px solid gainsboro;
+    }
+}

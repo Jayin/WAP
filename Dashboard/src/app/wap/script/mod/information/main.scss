@@ -1,0 +1,29 @@
+.conponent-EventList {
+    background-color: #fff;
+    color: #000;
+    padding: 14px;
+    .item {
+        font-size: 1rem;
+        height: 56px;
+        padding-top: 10px;
+        div {
+            display: inline-block;
+            text-align: center;
+        }
+    }
+    .item:hover {
+        background-color: #e0e0e0;
+    }
+    .col-category {
+        width: 224px;
+    }
+    .col-action {
+        width: 100px;
+    }
+    .col-ip {
+        width: 100px;
+    }
+    .col-create_time {
+        width: 100px;
+    }
+}

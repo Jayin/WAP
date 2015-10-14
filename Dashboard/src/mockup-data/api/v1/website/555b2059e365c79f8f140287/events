@@ -1,0 +1,89 @@
+[
+    {
+        "_id": "5585156e13b02a4cf9381c7c",
+        "action": "buy",
+        "category": "点击按钮行为",
+        "create_time": "2015-06-20T07:25:34.715Z",
+        "ip": "127.0.0.1",
+        "website_id": "555b2059e365c79f8f140287"
+    },
+    {
+        "_id": "5585156f13b02a4cf9381c7d",
+        "action": "buy",
+        "category": "点击链接行为",
+        "create_time": "2015-06-20T07:25:35.326Z",
+        "ip": "127.0.0.1",
+        "opt_label": "CookBook1",
+        "opt_value": 79,
+        "website_id": "555b2059e365c79f8f140287"
+    },
+    {
+        "_id": "556197e1c3a101fd1b78802d",
+        "action": "buy",
+        "category": "用户代码统计",
+        "create_time": "2015-05-24T09:20:33.050Z",
+        "opt_label": "CookBook2",
+        "opt_value": 998,
+        "website_id": "555b2059e365c79f8f140287"
+    },
+    {
+        "_id": "556197e1c3a101fd1b78802e",
+        "action": "buy",
+        "category": "点击链接行为",
+        "create_time": "2015-05-24T09:20:33.715Z",
+        "opt_label": "CookBook1",
+        "opt_value": 79,
+        "website_id": "555b2059e365c79f8f140287"
+    },
+    {
+        "_id": "556197e2c3a101fd1b78802f",
+        "action": "buy",
+        "category": "点击按钮行为",
+        "create_time": "2015-05-24T09:20:34.592Z",
+        "website_id": "555b2059e365c79f8f140287"
+    },
+    {
+        "_id": "5561987300b80cc625a639b6",
+        "action": "buy",
+        "category": "用户代码统计",
+        "create_time": "2015-05-24T09:22:59.104Z",
+        "ip": "127.0.0.1",
+        "opt_label": "CookBook2",
+        "opt_value": 998,
+        "website_id": "555b2059e365c79f8f140287"
+    },
+    {
+        "_id": "5583cdd0e6d533a26e2dca9e",
+        "action": "buy",
+        "category": "点击按钮行为",
+        "create_time": "2015-06-19T08:07:44.892Z",
+        "ip": "127.0.0.1",
+        "website_id": "555b2059e365c79f8f140287"
+    },
+    {
+        "_id": "5583cdd1e6d533a26e2dca9f",
+        "action": "buy",
+        "category": "用户代码统计",
+        "create_time": "2015-06-19T08:07:45.563Z",
+        "ip": "127.0.0.1",
+        "opt_label": "CookBook2",
+        "opt_value": 998,
+        "website_id": "555b2059e365c79f8f140287"
+    },
+    {
+        "_id": "5583ce52e6d533a26e2dcaa0",
+        "action": "buy",
+        "category": "点击按钮行为",
+        "create_time": "2015-06-19T08:09:54.973Z",
+        "ip": "127.0.0.1",
+        "website_id": "555b2059e365c79f8f140287"
+    },
+    {
+        "_id": "5583ce53e6d533a26e2dcaa1",
+        "action": "buy",
+        "category": "点击按钮行为",
+        "create_time": "2015-06-19T08:09:55.412Z",
+        "ip": "127.0.0.1",
+        "website_id": "555b2059e365c79f8f140287"
+    }
+]

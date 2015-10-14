@@ -1,0 +1,15 @@
+{
+	"isPrototype": "false",
+
+	"domain": "document.domain",
+	"origin": "location.protocol + '//' + location.host",
+	"cgiOrigin2": "location.protocol + '//' + location.host",
+	"cgiOrigin": "'http://localhost:3000'",
+	"cdnOrigin": "location.protocol + '//' + location.host",
+	"cdnOrigin2": "'http://7xijzi.com2.z0.glb.qiniucdn.com'",
+
+	"pageAside": "3",
+	"itemsPerPage": "15",
+	"oneScreenRecords": "10",
+	"mandatory": "<span style=color:red;>*</span>"
+}

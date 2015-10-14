@@ -1,0 +1,93 @@
+{
+    "today": {
+        "os": [
+            {
+                "name": "Window",
+                "count": 2333
+            },
+            {
+                "name": "Mac OS",
+                "count": 6666
+            },
+            {
+                "name": "Ubuntu",
+                "count": 2135
+            }
+        ],
+        "browser": [
+            {
+                "name": "Chrome",
+                "count": 3123
+            },
+            {
+                "name": "Safari",
+                "count": 441
+            },
+            {
+                "name": "IE 11",
+                "count": 777
+            }
+        ]
+    },
+    "past7day": {
+        "os": [
+            {
+                "name": "Window",
+                "count": 33
+            },
+            {
+                "name": "Mac OS",
+                "count": 55
+            },
+            {
+                "name": "Ubuntu",
+                "count": 66
+            }
+        ],
+        "browser": [
+            {
+                "name": "Chrome",
+                "count": 561
+            },
+            {
+                "name": "Safari",
+                "count": 26234
+            },
+            {
+                "name": "IE 11",
+                "count": 213
+            }
+        ]
+
+    },
+    "past30day": {
+        "os": [
+            {
+                "name": "Window",
+                "count": 1
+            },
+            {
+                "name": "Mac OS",
+                "count": 2
+            },
+            {
+                "name": "Ubuntu",
+                "count": 3
+            }
+        ],
+        "browser": [
+            {
+                "name": "Chrome",
+                "count": 4
+            },
+            {
+                "name": "Safari",
+                "count": 5
+            },
+            {
+                "name": "IE 11",
+                "count": 6
+            }
+        ]
+    }
+}

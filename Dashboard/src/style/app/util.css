@@ -1,0 +1,12 @@
+
+.img-btn {
+	text-indent: -999px;
+	border: none;
+	background-color: transparent;
+	padding: 0;
+	position: absolute;
+	background-position: left top;
+	background-repeat: no-repeat;
+	background-size: cover;
+	outline: none;
+}
